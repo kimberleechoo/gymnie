@@ -38,19 +38,19 @@ export function Auth({ status, error, onRetry, onSignOut }){
 
   if(status==='setup') return html`<main className="auth-page">
     <div className="auth-card card stack">
-      <div className="auth-brand"><span className="auth-mark">G</span><h1>Gymnie</h1></div>
+      <div className="auth-brand"><img className="auth-mark" src="assets/icon-192.png" alt=""/><h1>Gymnie</h1></div>
       <p className="muted">Connect your Supabase project to enable account sign-in and cloud saves.</p>
       <div className="notice">Add your project URL and publishable key in <code>src/lib/supabase.js</code>, then follow the database setup steps in README.md.</div>
     </div>
   </main>`;
 
   if(status==='loading') return html`<main className="auth-page"><div className="auth-card card stack" role="status">
-    <div className="auth-brand"><span className="auth-mark">G</span><h1>Gymnie</h1></div><p className="muted">Loading your account…</p>
+    <div className="auth-brand"><img className="auth-mark" src="assets/icon-192.png" alt=""/><h1>Gymnie</h1></div><p className="muted">Loading your account…</p>
   </div></main>`;
 
   if(status==='error') return html`<main className="auth-page">
     <div className="auth-card card stack">
-      <div className="auth-brand"><span className="auth-mark">G</span><h1>Gymnie</h1></div>
+      <div className="auth-brand"><img className="auth-mark" src="assets/icon-192.png" alt=""/><h1>Gymnie</h1></div>
       <p className="err" role="alert">${error}</p>
       <button type="button" className="btn primary" onClick=${onRetry}>Retry</button>
       <button type="button" className="btn ghost" onClick=${onSignOut}>Sign out</button>
@@ -59,7 +59,7 @@ export function Auth({ status, error, onRetry, onSignOut }){
 
   if(status==='passwordRecovery') return html`<main className="auth-page">
     <div className="auth-card card stack">
-      <div className="auth-brand"><span className="auth-mark">G</span><h1>Gymnie</h1></div>
+      <div className="auth-brand"><img className="auth-mark" src="assets/icon-192.png" alt=""/><h1>Gymnie</h1></div>
       <div><h2>Choose a new password</h2><p className="muted small">Use at least 8 characters.</p></div>
       <form className="stack" onSubmit=${submit}>
         <div className="field"><label htmlFor="auth-password">New password</label><input id="auth-password" className="input" type="password" autoComplete="new-password" minLength="8" required value=${password} onInput=${e=>setPassword(e.target.value)}/></div>
@@ -73,7 +73,7 @@ export function Auth({ status, error, onRetry, onSignOut }){
   const title=mode==='signup'?'Create your account':mode==='reset'?'Reset your password':'Welcome back';
   return html`<main className="auth-page">
     <div className="auth-card card stack">
-      <div className="auth-brand"><span className="auth-mark">G</span><h1>Gymnie</h1></div>
+      <div className="auth-brand"><img className="auth-mark" src="assets/icon-192.png" alt=""/><h1>Gymnie</h1></div>
       <div><h2>${title}</h2><p className="muted small">Sign in to keep your workouts saved to your account.</p></div>
       <form className="stack" onSubmit=${submit}>
         <div className="field"><label htmlFor="auth-email">Email</label><input id="auth-email" className="input" type="email" autoComplete="email" required value=${email} onInput=${e=>setEmail(e.target.value)}/></div>
