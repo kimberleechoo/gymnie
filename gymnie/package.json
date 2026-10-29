@@ -1,0 +1,17 @@
+{
+  "name": "gymnie",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gymnie: a mobile-first workout planner and tracker. Static site, no build step.",
+  "scripts": {
+    "start": "serve . -l 5173",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0"
+  }
+}

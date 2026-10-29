@@ -1,0 +1,31 @@
+/* Design tokens: light, dark (system), and manual data-theme overrides. */
+/* Layout: one phone-width column, bottom tab bar, full-screen workout mode with a pinned rest timer. */
+:root{
+  --bg:#F4F3F1; --surface:#FDFCFB; --surface2:#ECE8E5; --ink:#344C3D; --muted:#5E7064; --line:#DCD6D2;
+  --accent:#829672; --accent-ink:#FDFCFB; --accent-soft:#E2E9DB; --accent-text:#3E5A47;
+  --pink:#D8959B; --pink-soft:#F2D1D4; --pink-ink:#26382E; --rose:#A24E5B; --rose-soft:#F2D1D4;
+  --warn:#7A5410; --warn-soft:#F1E6C6; --danger:#B3322E;
+  --shadow:0 1px 2px rgba(52,76,61,.07),0 6px 18px rgba(52,76,61,.09);
+  --display:'Fat Frank','Bagel Fat One',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --nav-h:64px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#18261E; --surface:#223228; --surface2:#2C4033; --ink:#F4F3F1; --muted:#B0BFB3; --line:#38503F;
+    --accent:#A3B894; --accent-ink:#18261E; --accent-soft:#33493A; --accent-text:#C7D7BA;
+    --pink:#D8959B; --pink-soft:#4A3236; --pink-ink:#18261E; --rose:#E8AAB0; --rose-soft:#4A3236;
+    --warn:#E8C77A; --warn-soft:#3E3512; --danger:#F28C84;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#18261E; --surface:#223228; --surface2:#2C4033; --ink:#F4F3F1; --muted:#B0BFB3; --line:#38503F;
+  --accent:#A3B894; --accent-ink:#18261E; --accent-soft:#33493A; --accent-text:#C7D7BA;
+  --pink:#D8959B; --pink-soft:#4A3236; --pink-ink:#18261E; --rose:#E8AAB0; --rose-soft:#4A3236;
+  --warn:#E8C77A; --warn-soft:#3E3512; --danger:#F28C84;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+  color-scheme:dark;
+}

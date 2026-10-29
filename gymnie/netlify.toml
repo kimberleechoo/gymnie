@@ -1,0 +1,9 @@
+# Static site: no build step. Netlify serves this folder as-is.
+[build]
+  publish = "."
+
+# Always fetch the service worker fresh so updates reach your phone.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
