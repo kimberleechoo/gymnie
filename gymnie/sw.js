@@ -1,6 +1,6 @@
 // Network-first service worker: always tries the network, falls back to the cache offline.
 // Bump CACHE_VERSION on every deploy so old files are discarded.
-const CACHE_VERSION = 'gymnie-v2';
+const CACHE_VERSION = 'gymnie-v4';
 const APP_SHELL = [
   "./",
   "index.html",

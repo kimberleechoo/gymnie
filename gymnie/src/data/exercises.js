@@ -1,11 +1,13 @@
 export const GROUPS = {
-  back:{id:'back',name:'Back',short:'Back',blurb:'Lats, mid-back, rear delts'},
+  back:{id:'back',name:'Back',short:'Back',blurb:'Lats and mid-back'},
+  arms:{id:'arms',name:'Arms',short:'Arms',blurb:'Biceps and triceps'},
+  shoulders:{id:'shoulders',name:'Shoulders',short:'Shoulders',blurb:'Front, side and rear delts'},
   glutes:{id:'glutes',name:'Glutes',short:'Glutes',blurb:'Firm, rounded glutes'},
   legs:{id:'legs',name:'Legs',short:'Legs',blurb:'Hamstrings and quads'},
   core:{id:'core',name:'Core & Waist',short:'Core',blurb:'Trunk control, waist'}
 };
 
-export const GROUP_ORDER = ['back','glutes','legs','core'];
+export const GROUP_ORDER = ['back','arms','shoulders','glutes','legs','core'];
 
 export const EQUIP = [
   {id:'cable',name:'Cable machines'},
@@ -33,7 +35,14 @@ export const EX = [
   {id:'dead-bug',g:'core',name:'Dead bug',sets:3,reps:[8,10],unit:'reps',note:'each side',bw:true,cue:'Low back flat, move opposite arm and leg slowly.',tags:['floor'],heavy:false},
   {id:'plank',g:'core',name:'Plank',sets:3,reps:[30,45],unit:'sec',bw:true,cue:'Squeeze glutes and abs, one line from head to heels.',tags:['floor'],heavy:false},
   {id:'pallof',g:'core',name:'Pallof press',sets:3,reps:[10,12],unit:'reps',note:'each side',cue:'Stand side-on, press out and resist the cable.',tags:['cable'],heavy:false},
-  {id:'cable-crunch',g:'core',name:'Cable crunch',sets:3,reps:[12,15],unit:'reps',cue:'Round your spine down, hips still, exhale as you crunch.',tags:['cable'],heavy:false}
+  {id:'cable-crunch',g:'core',name:'Cable crunch',sets:3,reps:[12,15],unit:'reps',cue:'Round your spine down, hips still, exhale as you crunch.',tags:['cable'],heavy:false},
+  {id:'dumbbell-curl',g:'arms',name:'Dumbbell biceps curl',sets:3,reps:[10,12],unit:'reps',cue:'Keep elbows close to your sides and lower the weights slowly.',tags:['dumbbell'],heavy:false},
+  {id:'hammer-curl',g:'arms',name:'Dumbbell hammer curl',sets:3,reps:[10,12],unit:'reps',cue:'Keep palms facing each other and avoid swinging your body.',tags:['dumbbell'],heavy:false},
+  {id:'triceps-pushdown',g:'arms',name:'Cable triceps pushdown',sets:3,reps:[10,12],unit:'reps',cue:'Keep elbows tucked by your sides as you straighten your arms.',tags:['cable'],heavy:false},
+  {id:'overhead-triceps-extension',g:'arms',name:'Cable overhead triceps extension',sets:3,reps:[10,12],unit:'reps',cue:'Keep elbows pointing forward and use a comfortable range of motion.',tags:['cable'],heavy:false},
+  {id:'machine-shoulder-press',g:'shoulders',name:'Machine shoulder press',sets:3,reps:[8,12],unit:'reps',cue:'Keep your back supported and press smoothly without locking your elbows.',tags:['machine'],heavy:true},
+  {id:'dumbbell-lateral-raise',g:'shoulders',name:'Dumbbell lateral raise',sets:3,reps:[12,15],unit:'reps',cue:'Use light weights, raise slightly forward of your sides, and stop around shoulder height.',tags:['dumbbell'],heavy:false},
+  {id:'cable-face-pull',g:'shoulders',name:'Cable face pull',sets:3,reps:[12,15],unit:'reps',cue:'Pull the rope toward eye level with elbows high, then return with control.',tags:['cable'],heavy:false}
 ];
 
 export const EXMAP = Object.fromEntries(EX.map(e=>[e.id,e]));
@@ -85,6 +94,13 @@ export const POSES = {
  'plank':{h:[9,24],b:['M13 27L50 36','M16 28V40','M50 36V44'],e:['M4 46H60']},
  'pallof':{h:[28,10],b:['M28 14V30L24 44','M28 30L33 44','M28 20L46 20'],e:['M46 20H62','M62 14V28']},
  'cable-crunch':{h:[28,20],b:['M30 24L36 34H48V46','M36 34L24 26'],e:['M20 4L26 22','M10 47H58']},
+ 'dumbbell-curl':{h:[32,8],b:['M32 12V28','M32 18L22 25L24 34','M32 18L42 25L40 34','M24 34V42','M40 34V42'],e:['M20 33H28','M36 33H44']},
+ 'hammer-curl':{h:[32,8],b:['M32 12V28','M32 18L22 25L23 34','M32 18L42 25L41 34','M23 34V42','M41 34V42'],e:['M20 36V42','M44 36V42']},
+ 'triceps-pushdown':{h:[32,8],b:['M32 12V28','M32 18L22 24L24 38','M32 18L42 24L40 38','M24 38V44','M40 38V44'],e:['M20 44H28','M36 44H44','M20 17H44','M20 17V24']},
+ 'overhead-triceps-extension':{h:[32,8],b:['M32 12V28','M32 18L22 12L24 2','M32 18L42 12L40 2','M24 2L32 10','M40 2L32 10','M32 28L26 44','M32 28L38 44'],e:['M24 2H40']},
+ 'machine-shoulder-press':{h:[32,8],b:['M32 12V30','M32 19L22 12V3','M32 19L42 12V3','M32 30L25 44','M32 30L39 44'],e:['M18 3V20','M46 3V20','M18 3H46','M24 26H40']},
+ 'dumbbell-lateral-raise':{h:[32,8],b:['M32 12V30','M32 19L18 10','M32 19L46 10','M18 10L12 6','M46 10L52 6','M32 30L25 44','M32 30L39 44'],e:['M9 3V9','M55 3V9']},
+ 'cable-face-pull':{h:[32,8],b:['M32 12V30','M32 19L22 12L27 8','M32 19L42 12L37 8','M32 30L25 44','M32 30L39 44'],e:['M10 8H25','M25 8L29 11','M29 11L26 14']},
  'incline':{h:[28,10],b:['M28 14L30 28L22 40','M30 28L40 38L44 46','M29 18L38 22','M29 18L20 24'],e:['M6 48L58 38']},
  'elliptical':{h:[30,10],b:['M30 14V30','M30 30L24 44','M30 30L38 42','M30 20L18 24','M30 20L42 24'],e:['M14 47H52','M16 24V8','M44 24V8','M20 44L46 38']},
  'stairmaster':{h:[24,10],b:['M24 14V30L20 44','M24 30L32 36','M24 20L36 22'],e:['M36 22V34','M30 47H58','M34 47V40H44V33H54V26']},

@@ -86,7 +86,7 @@ other way round.
 |---|---|
 | Change colours | `css/theme.css` (light values on `:root`, dark in the two dark blocks) |
 | Change fonts | `--display`, `--serif`, `--body` in `theme.css` and the Google Fonts link in `index.html` |
-| Add or edit built-in exercises | `src/data/exercises.js` (`EX` array; drawings in `POSES`) |
+| Add or edit built-in exercises or muscle groups | `src/data/exercises.js` (`EX`, `GROUPS`, `GROUP_ORDER`; drawings in `POSES`) |
 | Add cardio machines | `CARDIO_TYPES` in `src/data/exercises.js` |
 | Change how workouts are generated | `generatePlan` in `src/lib/training.js` |
 | Change progression rules | `suggestion` in `src/lib/training.js`; the +2.5 kg step is `STEP_KG` in `src/data/exercises.js` |

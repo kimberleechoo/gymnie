@@ -122,7 +122,7 @@ export function generatePlan(b,sessions){
   const pool=g=>EX.filter(e=>e.g===g&&!avoidEx.includes(e.id)&&!e.tags.some(t=>avoidEquip.includes(t)));
   let chosen=groups.filter(g=>pool(g).length);
   if(!chosen.length) return {error:'Everything is excluded. Loosen the "avoid" list and try again.'};
-  const cap=time===30?2:(low?3:4);
+  const cap=time===30?2:(low?3:5);
   let note='';
   if(chosen.length>cap){
     chosen=chosen.slice().sort((a,b)=>(rec[b]-rec[a])||(GROUP_ORDER.indexOf(a)-GROUP_ORDER.indexOf(b))).slice(0,cap);
@@ -137,7 +137,7 @@ export function generatePlan(b,sessions){
       return (rb-ra)||(EX.indexOf(a)-EX.indexOf(b));
     });
   });
-  const seq=['back','glutes','back','legs','core','glutes','legs','back','core','glutes','legs','core'].filter(g=>chosen.includes(g));
+  const seq=['back','arms','shoulders','glutes','back','legs','core','arms','shoulders','glutes','legs','back','core','arms','shoulders','glutes','legs','core'].filter(g=>chosen.includes(g));
   const picks=[]; let guard=0;
   while(picks.length<n&&guard<60){
     guard++;
@@ -148,7 +148,7 @@ export function generatePlan(b,sessions){
     }
     if(!added) break;
   }
-  const rank={back:1,glutes:2,legs:3,core:4};
+  const rank={back:1,arms:2,shoulders:3,glutes:4,legs:5,core:6};
   picks.sort((a,b)=>((a.heavy?0:rank[a.g])-(b.heavy?0:rank[b.g]))||(EX.indexOf(a)-EX.indexOf(b)));
   return {plan:picks.map(e=>({id:e.id,sets:low?2:e.sets})),note};
 }

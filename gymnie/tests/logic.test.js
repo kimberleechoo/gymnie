@@ -32,6 +32,35 @@ test('generatePlan: respects avoided equipment and exercises', () => {
   assert.ok(plan.every(p => !EXMAP[p.id].tags.includes('cable') && p.id !== 'dead-bug'));
 });
 
+test('generatePlan: arms-only focus selects arm exercises', () => {
+  const { plan } = generatePlan(builder({ groups: ['arms'] }), []);
+  assert.ok(plan.length > 0);
+  assert.ok(plan.every(p => EXMAP[p.id].g === 'arms'));
+});
+
+test('generatePlan: includes arms when all muscle groups are selected', () => {
+  const { plan } = generatePlan(builder(), []);
+  assert.ok(plan.some(p => EXMAP[p.id].g === 'arms'));
+});
+
+test('arm exercises respect avoided equipment', () => {
+  const { plan } = generatePlan(builder({ groups: ['arms'], avoidEquip: ['dumbbell'] }), []);
+  assert.ok(plan.length > 0);
+  assert.ok(plan.every(p => EXMAP[p.id].g === 'arms' && !EXMAP[p.id].tags.includes('dumbbell')));
+});
+
+test('generatePlan: shoulders-only focus selects shoulder exercises', () => {
+  const { plan } = generatePlan(builder({ groups: ['shoulders'] }), []);
+  assert.ok(plan.length > 0);
+  assert.ok(plan.every(p => EXMAP[p.id].g === 'shoulders'));
+});
+
+test('shoulder exercises respect avoided equipment', () => {
+  const { plan } = generatePlan(builder({ groups: ['shoulders'], avoidEquip: ['machine', 'cable'] }), []);
+  assert.ok(plan.length > 0);
+  assert.ok(plan.every(p => EXMAP[p.id].g === 'shoulders' && EXMAP[p.id].tags.includes('dumbbell')));
+});
+
 test('suggestion: first time suggests a light start', () => {
   assert.equal(suggestion('lat-pulldown', []).kind, 'start');
 });
